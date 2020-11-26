@@ -1,0 +1,15 @@
+{
+  "modifyObstructiveCode": true,
+  "experimentalSourceRewriting": false,
+  "chromeWebSecurity": false,
+  "defualtCommandTimeout": 8000,
+  "videoCompression": false,
+  "blackHosts": ["www.googletagmanager.com"],
+  "nodeVersion":"system",
+  "env": {
+    "url": "https://my.colt.net/tickets"
+  },
+  "projectId": "fjjc3s",
+  "reporter": "mochawesome",
+   "retries": 0
+}

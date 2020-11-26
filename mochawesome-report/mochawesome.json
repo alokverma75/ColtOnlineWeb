@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-26T12:42:42.991Z",
+    "end": "2020-11-26T12:43:10.387Z",
+    "duration": 27396,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "38accb9b-ab81-43f5-a816-a978bd9b8478",
+      "title": "",
+      "fullFile": "cypress\\integration\\OnlineWeb\\RegistrationPage.js",
+      "file": "cypress\\integration\\OnlineWeb\\RegistrationPage.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8dbccfb1-d3fb-4f0f-8d0c-cdcaf9d34a31",
+          "title": "Test Registarion Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test resgitration functionality",
+              "fullTitle": "Test Registarion Functionality should test resgitration functionality",
+              "timedOut": null,
+              "duration": 25751,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('url'));\ncy.get('.btnn-secondary').click();\ncy.wait(2000);\ncy.percySnapshot('Registration page Test');\ncy.get(':nth-child(1) > .form-control').type(this.data.firstName);\ncy.get(':nth-child(2) > .form-control').type(this.data.lastName);\ncy.get('.text-right > .btn').click();\ncy.get('.form-control').type(\"4159132\");\ncy.get('.col-xs-5 > .btn').click();\ncy.get('.col-md-12 > .form-control').type(this.data.email);\ncy.get('.intl-tel-input > .form-control').type(this.data.phoneNumber);\ncy.get('.text-right > .btn').click({\n  force: true\n});\ncy.wait(3000);\ncy.get('.text-right > .btn').click();\ncy.get('.text-right > .btn').click();\ncy.get('.custom-control-label').click();\ncy.wait(4000);\ncy.get('#submitButtonUC01').click({\n  force: true\n});\ncy.wait(4000);",
+              "err": {},
+              "uuid": "0b90c802-ec5c-4538-b381-e47343c7c090",
+              "parentUUID": "8dbccfb1-d3fb-4f0f-8d0c-cdcaf9d34a31",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0b90c802-ec5c-4538-b381-e47343c7c090"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 25751,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}

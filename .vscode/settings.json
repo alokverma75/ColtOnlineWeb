@@ -1,0 +1,9 @@
+{
+    "javascript.suggest.completeFunctionCalls": true,
+    "color-highlight.languages": [
+
+        "*"
+    ],
+    "color-highlight.markerType": "",
+    "git.ignoreLimitWarning": true
+}

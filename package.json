@@ -1,0 +1,32 @@
+{
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "description": "Test package for learning",
+  "main": "index.js",
+  "cy:run": "cypress run",
+  "scripts": {
+    "open": ".\\node_modules\\.bin\\cypress open",
+    "test": ".\\node_modules\\.bin\\cypress run",
+    "headTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --browser chrome",
+    "onlinetest": "npm run test -- --spec \"cypress/integration/OnlineWeb/* \" --record --key 43618d7a-1fb6-46fd-9b2d-a4079b224091 --reporter mochawesome "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alokverma75/CypressAutomation.git"
+  },
+  "author": "Alok Verma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alokverma75/CypressAutomation/issues"
+  },
+  "homepage": "https://github.com/alokverma75/CypressAutomation#readme",
+  "devDependencies": {
+    "@percy/cypress": "^2.3.2",
+    "cypress": "^5.6.0",
+    "cypress-iframe": "^1.0.1",
+    "cypress-xpath": "^1.6.1",
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1"
+  }
+}
