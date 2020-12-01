@@ -17,6 +17,10 @@
 import './commands'
 
 require('cypress-xpath')
+const chai = require('chai');
+const chaiSubset = require('chai-subset');
+chai.use(chaiSubset);
+chai.use(require('chai-http'));
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

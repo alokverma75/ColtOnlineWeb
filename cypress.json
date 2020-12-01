@@ -6,8 +6,10 @@
   "videoCompression": false,
   "blackHosts": ["www.googletagmanager.com"],
   "nodeVersion":"system",
+  "baseUrl":  "https://my.colt.net/billing/",
   "env": {
-    "url": "https://my.colt.net/tickets"
+    "url": "https://my.colt.net/billing"
+   
   },
   "projectId": "fjjc3s",
   "reporter": "mochawesome",

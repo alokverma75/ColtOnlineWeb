@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2020-11-26T12:42:42.991Z",
-    "end": "2020-11-26T12:43:10.387Z",
-    "duration": 27396,
+    "start": "2020-12-01T05:09:18.510Z",
+    "end": "2020-12-01T05:09:45.847Z",
+    "duration": 27337,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "38accb9b-ab81-43f5-a816-a978bd9b8478",
+      "uuid": "c9db3f23-30fc-402b-9ec8-18cd20fd4415",
       "title": "",
       "fullFile": "cypress\\integration\\OnlineWeb\\RegistrationPage.js",
       "file": "cypress\\integration\\OnlineWeb\\RegistrationPage.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8dbccfb1-d3fb-4f0f-8d0c-cdcaf9d34a31",
+          "uuid": "7717adc8-8a43-45dd-9141-f2264bf13751",
           "title": "Test Registarion Functionality",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "should test resgitration functionality",
               "fullTitle": "Test Registarion Functionality should test resgitration functionality",
               "timedOut": null,
-              "duration": 25751,
+              "duration": 27305,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.visit(Cypress.env('url'));\ncy.get('.btnn-secondary').click();\ncy.wait(2000);\ncy.percySnapshot('Registration page Test');\ncy.get(':nth-child(1) > .form-control').type(this.data.firstName);\ncy.get(':nth-child(2) > .form-control').type(this.data.lastName);\ncy.get('.text-right > .btn').click();\ncy.get('.form-control').type(\"4159132\");\ncy.get('.col-xs-5 > .btn').click();\ncy.get('.col-md-12 > .form-control').type(this.data.email);\ncy.get('.intl-tel-input > .form-control').type(this.data.phoneNumber);\ncy.get('.text-right > .btn').click({\n  force: true\n});\ncy.wait(3000);\ncy.get('.text-right > .btn').click();\ncy.get('.text-right > .btn').click();\ncy.get('.custom-control-label').click();\ncy.wait(4000);\ncy.get('#submitButtonUC01').click({\n  force: true\n});\ncy.wait(4000);",
+              "code": "cy.visit(Cypress.env('url'));\ncy.get('.btnn-secondary').click();\ncy.wait(2000);\ncy.percySnapshot('Registration page Test');\ncy.get(':nth-child(1) > .form-control').type(this.data.firstName);\ncy.get(':nth-child(2) > .form-control').type(this.data.lastName);\ncy.get('.text-right > .btn').click();\ncy.get('.form-control').type(this.data.OCNCustomer);\ncy.get('.col-xs-5 > .btn').click();\ncy.get('.col-md-12 > .form-control').type(this.data.email);\ncy.get('.intl-tel-input > .form-control').type(this.data.phoneNumber);\ncy.get('.text-right > .btn').click({\n  force: true\n});\ncy.wait(3000);\ncy.get('.text-right > .btn').click();\ncy.get('.text-right > .btn').click();\ncy.get('.custom-control-label').click();\ncy.wait(4000);\ncy.get('#submitButtonUC01').click({\n  force: true\n});\ncy.wait(4000);",
               "err": {},
-              "uuid": "0b90c802-ec5c-4538-b381-e47343c7c090",
-              "parentUUID": "8dbccfb1-d3fb-4f0f-8d0c-cdcaf9d34a31",
+              "uuid": "2d495a67-dd89-4a08-b067-90bfadeb95ec",
+              "parentUUID": "7717adc8-8a43-45dd-9141-f2264bf13751",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "0b90c802-ec5c-4538-b381-e47343c7c090"
+            "2d495a67-dd89-4a08-b067-90bfadeb95ec"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 25751,
+          "duration": 27305,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

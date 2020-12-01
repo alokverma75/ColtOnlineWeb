@@ -20,7 +20,7 @@ describe('Test Registarion Functionality', function () {
         cy.get(':nth-child(1) > .form-control').type(this.data.firstName)        
         cy.get(':nth-child(2) > .form-control').type(this.data.lastName)
         cy.get('.text-right > .btn').click()
-        cy.get('.form-control').type("4159132")
+        cy.get('.form-control').type(this.data.OCNCustomer)
         cy.get('.col-xs-5 > .btn').click()
         cy.get('.col-md-12 > .form-control').type(this.data.email)
         cy.get('.intl-tel-input > .form-control').type(this.data.phoneNumber)
