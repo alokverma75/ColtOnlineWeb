@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2020-12-01T05:09:18.510Z",
-    "end": "2020-12-01T05:09:45.847Z",
-    "duration": 27337,
+    "start": "2020-12-01T09:14:35.259Z",
+    "end": "2020-12-01T09:15:03.090Z",
+    "duration": 27831,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "c9db3f23-30fc-402b-9ec8-18cd20fd4415",
+      "uuid": "941f6030-ca9d-4fa5-960c-44bce17f022c",
       "title": "",
       "fullFile": "cypress\\integration\\OnlineWeb\\RegistrationPage.js",
       "file": "cypress\\integration\\OnlineWeb\\RegistrationPage.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "7717adc8-8a43-45dd-9141-f2264bf13751",
+          "uuid": "90643813-d08b-4738-a7a4-3ff21a750ecf",
           "title": "Test Registarion Functionality",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should test resgitration functionality",
               "fullTitle": "Test Registarion Functionality should test resgitration functionality",
               "timedOut": null,
-              "duration": 27305,
+              "duration": 27759,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.visit(Cypress.env('url'));\ncy.get('.btnn-secondary').click();\ncy.wait(2000);\ncy.percySnapshot('Registration page Test');\ncy.get(':nth-child(1) > .form-control').type(this.data.firstName);\ncy.get(':nth-child(2) > .form-control').type(this.data.lastName);\ncy.get('.text-right > .btn').click();\ncy.get('.form-control').type(this.data.OCNCustomer);\ncy.get('.col-xs-5 > .btn').click();\ncy.get('.col-md-12 > .form-control').type(this.data.email);\ncy.get('.intl-tel-input > .form-control').type(this.data.phoneNumber);\ncy.get('.text-right > .btn').click({\n  force: true\n});\ncy.wait(3000);\ncy.get('.text-right > .btn').click();\ncy.get('.text-right > .btn').click();\ncy.get('.custom-control-label').click();\ncy.wait(4000);\ncy.get('#submitButtonUC01').click({\n  force: true\n});\ncy.wait(4000);",
               "err": {},
-              "uuid": "2d495a67-dd89-4a08-b067-90bfadeb95ec",
-              "parentUUID": "7717adc8-8a43-45dd-9141-f2264bf13751",
+              "uuid": "79de9367-055a-4965-8567-d942f972d8b6",
+              "parentUUID": "90643813-d08b-4738-a7a4-3ff21a750ecf",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "2d495a67-dd89-4a08-b067-90bfadeb95ec"
+            "79de9367-055a-4965-8567-d942f972d8b6"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 27305,
+          "duration": 27759,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

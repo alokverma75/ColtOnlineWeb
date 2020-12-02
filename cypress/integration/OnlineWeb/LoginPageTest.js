@@ -46,6 +46,8 @@ describe('Test Login Functionality', function () {
             expect(response.body.data[0].employeeType).to.eq('Colt Employee')
             expect(response.body.data[0].userType).to.eq('ACCOUNT_EXEC')
 
+            
+
             //data is an array so start with [] and declare diff objs and compare all imp data
             expect(response.body.data).to.containSubset(
                 [
