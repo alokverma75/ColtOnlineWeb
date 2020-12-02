@@ -1,8 +1,9 @@
 // <reference types="Cypress" />
 
 describe('Test Login Functionality', function () {
-    const chaiSubset = require('chai-subset');
-    chai.use(chaiSubset);
+
+    chai.use(require('chai-subset'));
+    chai.use(require('chai-string'));
 
     //called after describe and before it block
     before(function () {
@@ -13,13 +14,19 @@ describe('Test Login Functionality', function () {
         })
     })
 
-     it('should test login functionality', function () {
+    it('should test login functionality', function () {
         cy.visit(Cypress.env('url'))
         cy.percySnapshot('LoginPage Test');
         cy.get("#userId").type(this.data.InternalAdmin)
         cy.get("#password").type(this.data.password)
         cy.get('.btnn-danger').click()
         cy.wait(6000)
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            // returning false here prevents Cypress from
+            // failing the test
+            //cy.log(err)
+            return false
+        })
         cy.request('api/authorize').as('authorize')
         cy.get('@authorize').should((response) => {
             expect(response.status).to.eq(200)
@@ -41,21 +48,20 @@ describe('Test Login Functionality', function () {
             //To test only selected data
             expect(response.body.operationStatus.success).to.eq(true)
             expect(response.body.operationStatus.messages[0]).to.eq('success')
+            expect(response.body.data[0].userName).to.equalIgnoreCase(this.data.InternalAdmin)
             expect(response.body.data[0].roles[7]).to.eq('AddressDoctor')
             expect(response.body.data[0].firstName).to.eq('test_123')
             expect(response.body.data[0].employeeType).to.eq('Colt Employee')
             expect(response.body.data[0].userType).to.eq('ACCOUNT_EXEC')
 
-            
-
             //data is an array so start with [] and declare diff objs and compare all imp data
             expect(response.body.data).to.containSubset(
                 [
                     {
-                        "roles": 
-                        [
-                            "EveryOne", "AccountExec", "Colt", "Request_For_Approval", "RemoveUser", "ViewMyDraftOrder", "RTDTool", "AddressDoctor", "RaiseFaultTicket", "ViewStaticContent", "ViewMyLiveServices", "EditUser", "viewDocument", "AddUser", "ViewRegulatoryInformation", "ViewServices", "ViewOrders", "ViewBills", "ManageDocument", "RaiseBillingEnquiry", "RaiseServiceTicket", "DraftICServices", "ViewLiveICServices", "ViewTickets", "RaiseOtherEnquiry"
-                         ],
+                        "roles":
+                            [
+                                "EveryOne", "AccountExec", "Colt", "Request_For_Approval", "RemoveUser", "ViewMyDraftOrder", "RTDTool", "AddressDoctor", "RaiseFaultTicket", "ViewStaticContent", "ViewMyLiveServices", "EditUser", "viewDocument", "AddUser", "ViewRegulatoryInformation", "ViewServices", "ViewOrders", "ViewBills", "ManageDocument", "RaiseBillingEnquiry", "RaiseServiceTicket", "DraftICServices", "ViewLiveICServices", "ViewTickets", "RaiseOtherEnquiry"
+                            ],
                         "firstName": "test_123",
                         "lastName": "qwe",
                         "email": "Deepesh.Thukral@colt.net",
@@ -69,8 +75,8 @@ describe('Test Login Functionality', function () {
                         "employeeType": "Colt Employee",
                         "userName": "test2020ia",
                         "userType": "ACCOUNT_EXEC",
-                        "ochId": "",
-                        "xuser": "jdn6V3KcTSpSopuNAqXBiA=="
+                        "ochId": ""
+
                     }
                 ]
             )
