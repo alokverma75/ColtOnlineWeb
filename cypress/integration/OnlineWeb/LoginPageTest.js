@@ -1,39 +1,54 @@
-// <reference types="Cypress" />
+<reference types="Cypress" />
+const sizes = ['ipad-2', 'ipad-mini', 'iphone-3', 'iphone-4', 'iphone-5', 'iphone-6', 'iphone-6+', 'iphone-7',
+    'iphone-8', 'iphone-x', 'iphone-xr', 'iphone-se2', 'macbook-11', 'macbook-13', 'macbook-15', 'macbook-16',
+    'samsung-note9', 'samsung-s10']
 
+
+var screenshotTaken = false;
 describe('Test Login Functionality', function () {
 
     chai.use(require('chai-subset'));
     chai.use(require('chai-string'));
 
     //called after describe and before it block
-    before(function () {
+    beforeEach(function () {
         // root-level hook
         // runs before every test
         cy.fixture('testdata').then(function (data) {
-            this.data = data
+            this.data = data 
         })
     })
 
-    it('should test login functionality', function () {
+    sizes.forEach((size) => {
+        it(`should test login functionality in ${size} screen`, function () {
+        if (Cypress._.isArray(size)) {
+            cy.viewport(size[0], size[1])
+        } else {
+            cy.viewport(size)
+        }
         cy.visit(Cypress.env('url'))
-        cy.percySnapshot('LoginPage Test');
+        if (!screenshotTaken) {
+        cy.percySnapshot('Login Page');
+            screenshotTaken =  true;           
+        }
         cy.get("#userId").type(this.data.InternalAdmin)
         cy.get("#password").type(this.data.password)
         cy.get('.btnn-danger').click()
-        cy.wait(6000)
-        Cypress.on('uncaught:exception', (err, runnable) => {
-            // returning false here prevents Cypress from
-            // failing the test
-            //cy.log(err)
-            return false
-        })
+        cy.wait(10000)
+        // Cypress.on('uncaught:exception', (err, runnable) => {
+        //     // returning false here prevents Cypress from
+        //     // failing the test
+        //     //cy.log(err)
+        //     return false
+        // })
         cy.request('api/authorize').as('authorize')
         cy.get('@authorize').should((response) => {
             expect(response.status).to.eq(200)
             // expect(response).to.have.length(500)
             expect(response).to.have.property('headers').to.include({
-                'server': 'Colt',
-                'content-type': 'application/json;charset=UTF-8'
+                'server': 'Colt'
+                // ,
+                // 'content-type': 'application/json;charset=UTF-8'
             })
             //check for response bdoy to have all elements as below
             expect(response.body).property('operationStatus')
@@ -81,5 +96,7 @@ describe('Test Login Functionality', function () {
                 ]
             )
         })
+       })
+
     })
 })
