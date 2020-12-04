@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2020-12-04T22:46:51.832Z",
-    "end": "2020-12-04T22:47:51.750Z",
-    "duration": 59918,
+    "failures": 1,
+    "start": "2020-12-04T23:12:19.407Z",
+    "end": "2020-12-04T23:12:20.281Z",
+    "duration": 874,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b643fbd6-b8ab-4a20-af86-ebd4c6fd8988",
+      "uuid": "b66911a1-e7ac-4c19-a5de-d0987d3078da",
       "title": "",
       "fullFile": "cypress\\integration\\OnlineWeb\\RegistrationPageTest.js",
       "file": "cypress\\integration\\OnlineWeb\\RegistrationPageTest.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "3a3eb1e4-5265-46cd-a1c6-347cf7af4b44",
+          "uuid": "16ee7fa4-2cd4-4595-8fa3-2658fb726bb6",
           "title": "Test Billing Page Registration Functionality",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,33 @@
               "title": "should test resgitration functionality in ipad-mini screen",
               "fullTitle": "Test Billing Page Registration Functionality should test resgitration functionality in ipad-mini screen",
               "timedOut": null,
-              "duration": 59898,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
+              "duration": 851,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "if (Cypress._.isArray(device)) {\n  cy.viewport(device[0], device[1]);\n} else {\n  cy.viewport(device);\n}\nutilPage.visitBillingPage();\nregistrationPage.getRegisterButton().click();\ncy.wait(10000);\nif (!screenshotTaken) {\n  //If screenshot not taken then take screenshot once and not for every iteration of device type\n  utilPage.takePercySnapShot('Registration page'); //After screnshot taken then set it to true so that it's not repeated afterwards\n  screenshotTaken = true;\n}\nregistrationPage.getFirstNameField().type(data.firstName, {\n  force: true\n});\nregistrationPage.getLastNameField().type(data.lastName, {\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\nregistrationPage.getCustomerNumberField().type(data.OCNCustomer, {\n  force: true\n});\nregistrationPage.getNextButtonToUserDetailsPage().click({\n  force: true\n});\nregistrationPage.getEmailAddressTextField().type(data.email, {\n  force: true\n});\nregistrationPage.getPhoneNumberTextField().type(data.phoneNumber, {\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\ncy.wait(6000);\nregistrationPage.getNextButton().click({\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\ncy.wait(4000);\nregistrationPage.getTermsAndConditionsCheckBox().click({\n  force: true\n});\ncy.wait(4000);\nregistrationPage.getSubmitButton().click({\n  force: true\n});\nutilPage.reloadPage();\ncy.wait(6000);",
-              "err": {},
-              "uuid": "b81c7655-17b3-447e-a594-7011d1d2d84d",
-              "parentUUID": "3a3eb1e4-5265-46cd-a1c6-347cf7af4b44",
+              "err": {
+                "message": "SecurityError: Permission denied to access property \"addEventListener\" on cross-origin object",
+                "estack": "SecurityError: Permission denied to access property \"addEventListener\" on cross-origin object\n../driver/node_modules/jquery/dist/jquery.js/</Sizzle</Sizzle.setDocument@https://my.colt.net/__cypress/runner/cypress_runner.js:87268:8\nSizzle@https://my.colt.net/__cypress/runner/cypress_runner.js:86914:15\nfind@https://my.colt.net/__cypress/runner/cypress_runner.js:89055:11\n../driver/node_modules/jquery/dist/jquery.js/</jQuery.fn.init@https://my.colt.net/__cypress/runner/cypress_runner.js:89170:40\nquery@https://my.colt.net/__cypress/runner/cypress_runner.js:179894:10\n$$@https://my.colt.net/__cypress/runner/cypress_runner.js:169195:17\ngetElements@https://my.colt.net/__cypress/runner/cypress_runner.js:158204:20\ntryCatcher@https://my.colt.net/__cypress/runner/cypress_runner.js:10584:23\n../../node_modules/bluebird/js/release/method.js/module.exports/Promise.try@https://my.colt.net/__cypress/runner/cypress_runner.js:7858:29\nresolveElements@https://my.colt.net/__cypress/runner/cypress_runner.js:158254:24\ntryCatcher@https://my.colt.net/__cypress/runner/cypress_runner.js:10584:23\n../../node_modules/bluebird/js/release/method.js/module.exports/Promise.try@https://my.colt.net/__cypress/runner/cypress_runner.js:7858:29\ntryFn@https://my.colt.net/__cypress/runner/cypress_runner.js:165579:18\nwhenStable@https://my.colt.net/__cypress/runner/cypress_runner.js:165617:12\nretry/<@https://my.colt.net/__cypress/runner/cypress_runner.js:165112:16\ntryCatcher@https://my.colt.net/__cypress/runner/cypress_runner.js:10584:23\n../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromiseFromHandler@https://my.colt.net/__cypress/runner/cypress_runner.js:8519:31\n../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromise@https://my.colt.net/__cypress/runner/cypress_runner.js:8576:18\n../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromise0@https://my.colt.net/__cypress/runner/cypress_runner.js:8621:10\n../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromises@https://my.colt.net/__cypress/runner/cypress_runner.js:8701:18\n../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._fulfill@https://my.colt.net/__cypress/runner/cypress_runner.js:8645:18\n../../node_modules/bluebird/js/release/timers.js/module.exports/Promise.delay/handle<@https://my.colt.net/__cypress/runner/cypress_runner.js:10259:46\n",
+                "diff": null
+              },
+              "uuid": "2fc2b307-96e0-4314-9d4f-cebf2a07971d",
+              "parentUUID": "16ee7fa4-2cd4-4595-8fa3-2658fb726bb6",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "b81c7655-17b3-447e-a594-7011d1d2d84d"
+          "passes": [],
+          "failures": [
+            "2fc2b307-96e0-4314-9d4f-cebf2a07971d"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 59898,
+          "duration": 851,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
