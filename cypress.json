@@ -4,7 +4,7 @@
   "chromeWebSecurity": false,
   "defualtCommandTimeout": 15000,
   "pageLoadTimeout": 100000,
-  "videoCompression": false,
+  "videoCompression": 21,
   "blackHosts": ["www.googletagmanager.com"],
   "nodeVersion":"system",
   "baseUrl":  "https://my.colt.net/billing/",

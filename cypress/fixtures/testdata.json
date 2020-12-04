@@ -5,7 +5,15 @@
   "lastName": "User",
   "OCNCustomer": "4159132",  
   "email": "alokverma75@gmail.com",
-  "phoneNumber": "07400 123456"
-
-
+  "phoneNumber": "07400 123456",
+  "authAPiData" : {
+      "addressDoctor": "AddressDoctor",
+      "firstName": "test_123",
+      "employeeType" : "Colt Employee",
+      "userType" : "ACCOUNT_EXEC"
+  },
+    "authAPiJSONData" : {
+      "operationElement": "operationStatus",
+      "dataElement": "data"
+  }
 }

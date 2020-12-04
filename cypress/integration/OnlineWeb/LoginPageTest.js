@@ -1,10 +1,13 @@
-<reference types="Cypress" />
-const sizes = ['ipad-2', 'ipad-mini', 'iphone-3', 'iphone-4', 'iphone-5', 'iphone-6', 'iphone-6+', 'iphone-7',
-    'iphone-8', 'iphone-x', 'iphone-xr', 'iphone-se2', 'macbook-11', 'macbook-13', 'macbook-15', 'macbook-16',
-    'samsung-note9', 'samsung-s10']
+/// <reference types="Cypress" />
+
+import UtilPage from '../../support/pageObjects/UtilPage';
+import LoginPage from '../../support/pageObjects/LoginPage';
 
 
+
+const listOfDevices = new UtilPage().getListOfDevicesForResponsiveness();
 var screenshotTaken = false;
+
 describe('Test Login Functionality', function () {
 
     chai.use(require('chai-subset'));
@@ -15,34 +18,41 @@ describe('Test Login Functionality', function () {
         // root-level hook
         // runs before every test
         cy.fixture('testdata').then(function (data) {
-            this.data = data 
+            this.data = data
+           
         })
     })
 
-    sizes.forEach((size) => {
-        it(`should test login functionality in ${size} screen`, function () {
-        if (Cypress._.isArray(size)) {
-            cy.viewport(size[0], size[1])
+    listOfDevices.forEach((device) => {
+
+        const loginPage = new LoginPage();
+        const utilPage = new UtilPage();
+        it(`should test login functionality in ${device} screen`, function () {
+            if (Cypress._.isArray(device)) {
+                cy.viewport(device[0], device[1])
         } else {
-            cy.viewport(size)
+                cy.viewport(device)
         }
-        cy.visit(Cypress.env('url'))
+        utilPage.getMyBillingURL()
         if (!screenshotTaken) {
-        cy.percySnapshot('Login Page');
+            utilPage.takePercySnapShot('Login Page')
             screenshotTaken =  true;           
         }
-        cy.get("#userId").type(this.data.InternalAdmin)
-        cy.get("#password").type(this.data.password)
-        cy.get('.btnn-danger').click()
+        loginPage.getUserIDField().type(this.data.InternalAdmin)
+        loginPage.getPasswordField().type(this.data.password)
+        loginPage.getLoginButton().click()
         cy.wait(10000)
+
+
         // Cypress.on('uncaught:exception', (err, runnable) => {
         //     // returning false here prevents Cypress from
         //     // failing the test
         //     //cy.log(err)
         //     return false
         // })
-        cy.request('api/authorize').as('authorize')
-        cy.get('@authorize').should((response) => {
+        
+            utilPage.getAuthorizeAPIEndPoint().as('authorize')
+            cy.get('@authorize').should((response) => {
             expect(response.status).to.eq(200)
             // expect(response).to.have.length(500)
             expect(response).to.have.property('headers').to.include({
@@ -51,8 +61,8 @@ describe('Test Login Functionality', function () {
                 // 'content-type': 'application/json;charset=UTF-8'
             })
             //check for response bdoy to have all elements as below
-            expect(response.body).property('operationStatus')
-            expect(response.body).property('data')
+            expect(response.body).property(this.data.authAPiJSONData.operationElement)
+            expect(response.body).property(this.data.authAPiJSONData.dataElement)
             expect(response.body).to.containSubset
                 (
                     {
@@ -64,10 +74,10 @@ describe('Test Login Functionality', function () {
             expect(response.body.operationStatus.success).to.eq(true)
             expect(response.body.operationStatus.messages[0]).to.eq('success')
             expect(response.body.data[0].userName).to.equalIgnoreCase(this.data.InternalAdmin)
-            expect(response.body.data[0].roles[7]).to.eq('AddressDoctor')
-            expect(response.body.data[0].firstName).to.eq('test_123')
-            expect(response.body.data[0].employeeType).to.eq('Colt Employee')
-            expect(response.body.data[0].userType).to.eq('ACCOUNT_EXEC')
+            expect(response.body.data[0].roles[7]).to.eq(this.data.authAPiData.addressDoctor)
+            expect(response.body.data[0].firstName).to.eq(this.data.authAPiData.firstName)
+            expect(response.body.data[0].employeeType).to.eq(this.data.authAPiData.employeeType)
+            expect(response.body.data[0].userType).to.eq(this.data.authAPiData.userType)
 
             //data is an array so start with [] and declare diff objs and compare all imp data
             expect(response.body.data).to.containSubset(
