@@ -14,11 +14,11 @@ describe('Test Login Functionality', function () {
     chai.use(require('chai-string'));
 
     //called after describe and before it block
-    beforeEach(function () {
+    before(function () {
         // root-level hook
         // runs before every test
         cy.fixture('testdata').then(function (data) {
-            this.data = data
+            globalThis.data = data
            
         })
     })
@@ -45,8 +45,8 @@ describe('Test Login Functionality', function () {
             utilPage.takePercySnapShot('Login Page')
             screenshotTaken =  true;           
         }
-        loginPage.getUserIDField().type(this.data.InternalAdmin)
-        loginPage.getPasswordField().type(this.data.password)
+        loginPage.getUserIDField().type(data.InternalAdmin)
+        loginPage.getPasswordField().type(data.password)
         loginPage.getLoginButton().click()
         cy.wait(10000)
 
@@ -68,8 +68,8 @@ describe('Test Login Functionality', function () {
                 // 'content-type': 'application/json;charset=UTF-8'
             })
             //check for response bdoy to have all elements as below
-            expect(response.body).property(this.data.authAPiJSONData.operationElement)
-            expect(response.body).property(this.data.authAPiJSONData.dataElement)
+            expect(response.body).property(data.authAPiJSONData.operationElement)
+            expect(response.body).property(data.authAPiJSONData.dataElement)
             expect(response.body).to.containSubset
                 (
                     {
@@ -80,11 +80,11 @@ describe('Test Login Functionality', function () {
             //To test only selected data
             expect(response.body.operationStatus.success).to.eq(true)
             expect(response.body.operationStatus.messages[0]).to.eq('success')
-            expect(response.body.data[0].userName).to.equalIgnoreCase(this.data.InternalAdmin)
-            expect(response.body.data[0].roles[7]).to.eq(this.data.authAPiData.addressDoctor)
-            expect(response.body.data[0].firstName).to.eq(this.data.authAPiData.firstName)
-            expect(response.body.data[0].employeeType).to.eq(this.data.authAPiData.employeeType)
-            expect(response.body.data[0].userType).to.eq(this.data.authAPiData.userType)
+            expect(response.body.data[0].userName).to.equalIgnoreCase(data.InternalAdmin)
+            expect(response.body.data[0].roles[7]).to.eq(data.authAPiData.addressDoctor)
+            expect(response.body.data[0].firstName).to.eq(data.authAPiData.firstName)
+            expect(response.body.data[0].employeeType).to.eq(data.authAPiData.employeeType)
+            expect(response.body.data[0].userType).to.eq(data.authAPiData.userType)
 
             //data is an array so start with [] and declare diff objs and compare all imp data
             expect(response.body.data).to.containSubset(

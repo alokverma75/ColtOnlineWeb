@@ -12,11 +12,11 @@ describe('Test Registarion Functionality', function () {
     const utilPage = new UtilPage();
     
     //called after describe and before it block
-    beforeEach(function () {
+    before(function () {
         // root-level hook
         // runs before every test
         cy.fixture('testdata').then(function (data) {
-            this.data = data
+            globalThis.data = data
         })
     })
 
@@ -38,13 +38,13 @@ describe('Test Registarion Functionality', function () {
                //After screnshot taken then set it to true so that it's not repeated afterwards
                screenshotTaken = true;               
             }
-            registrationPage.getFirstNameField().type(this.data.firstName)
-            registrationPage.getLastNameField().type(this.data.lastName)
+            registrationPage.getFirstNameField().type(data.firstName)
+            registrationPage.getLastNameField().type(data.lastName)
             registrationPage.getNextButton().click({ force: true })
-            registrationPage.getCustomerNumberField().type(this.data.OCNCustomer)
+            registrationPage.getCustomerNumberField().type(data.OCNCustomer)
             registrationPage.getNextButtonToUserDetailsPage().click({ force: true })
-            registrationPage.getEmailAddressTextField().type(this.data.email)
-            registrationPage.getPhoneNumberTextField().type(this.data.phoneNumber)
+            registrationPage.getEmailAddressTextField().type(data.email)
+            registrationPage.getPhoneNumberTextField().type(data.phoneNumber)
             registrationPage.getNextButton().click({ force: true })
             cy.wait(3000)
             registrationPage.getNextButton().click()
