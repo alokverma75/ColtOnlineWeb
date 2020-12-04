@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 import UtilPage from '../../support/pageObjects/UtilPage';
-import RegistrationPage from '../../support/pageObjects/RegistrationPage';
+import RegistrationPage from '../../support/pageObjects/billingPages/RegistrationPage';
 
 
 const listOfDevices = new UtilPage().getListOfDevicesForResponsiveness();
@@ -29,7 +29,7 @@ describe('Test Registarion Functionality', function () {
             } else {
                 cy.viewport(device)
             }           
-            utilPage.getMyBillingURL()
+            utilPage.visitBillingPage()
             registrationPage.getRegisterButton().click()
             cy.wait(10000)
             if (!screenshotTaken) {

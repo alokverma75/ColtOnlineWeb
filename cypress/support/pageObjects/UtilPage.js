@@ -21,8 +21,20 @@ class UtilPage{
         return cy.request('api/authorize');
     }
 
-    getMyBillingURL(){
-        return cy.visit('https://my.colt.net/billing');
+    visitTicketsPage() {
+        return cy.visit(Cypress.env('ticketsURL'))
+    }
+
+    visitServicesPage(){
+        return cy.visit(Cypress.env('servicesURL'))
+    }
+
+    visitBillingPage() {
+        return cy.visit(Cypress.env('billingURL'))
+    }
+
+    visitPlannedWorksPage() {
+        return cy.visit(Cypress.env('plannedWorksURL'))
     }
 
     getNextButton(){

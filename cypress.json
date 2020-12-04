@@ -9,8 +9,10 @@
   "nodeVersion":"system",
   "baseUrl":  "https://my.colt.net/billing/",
   "env": {
-    "url": "https://my.colt.net/billing"
-   
+    "ticketsURL": "https://my.colt.net/tickets",
+    "servicesURL": "https://my.colt.net/services",
+    "billingURL": "https://my.colt.net/billing",
+    "plannedWorksURL": "https://my.colt.net/plannedworks"
   },
   "projectId": "fjjc3s",
   "reporter": "mochawesome",

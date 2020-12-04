@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 import UtilPage from '../../support/pageObjects/UtilPage';
-import LoginPage from '../../support/pageObjects/LoginPage';
+import LoginPage from '../../support/pageObjects/billingPages/LoginPage';
 
 
 
@@ -33,7 +33,14 @@ describe('Test Login Functionality', function () {
         } else {
                 cy.viewport(device)
         }
-        utilPage.getMyBillingURL()
+           utilPage.visitBillingPage()
+            Cypress.on('uncaught:exception', (err, runnable) => {
+                // returning false here prevents Cypress from
+                // failing the test
+                //cy.log(err)
+                return false
+            })
+
         if (!screenshotTaken) {
             utilPage.takePercySnapShot('Login Page')
             screenshotTaken =  true;           

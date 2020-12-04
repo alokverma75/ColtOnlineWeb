@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2020-12-04T14:59:11.932Z",
-    "end": "2020-12-04T14:59:57.052Z",
-    "duration": 45120,
+    "start": "2020-12-04T15:15:07.680Z",
+    "end": "2020-12-04T15:15:53.103Z",
+    "duration": 45423,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "09b0cd5a-1a21-448b-a210-126b1d70e0a2",
+      "uuid": "db0347ea-965d-4690-9d3c-5e36e9deaa1a",
       "title": "",
       "fullFile": "cypress\\integration\\OnlineWeb\\RegistrationPageTest.js",
       "file": "cypress\\integration\\OnlineWeb\\RegistrationPageTest.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "2aae7106-baaa-43a9-8df3-4a154df51bcc",
+          "uuid": "b110bd35-fd38-4d41-8d03-9d6a9ae3fa40",
           "title": "Test Registarion Functionality",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should test resgitration functionality in ipad-2 screen",
               "fullTitle": "Test Registarion Functionality should test resgitration functionality in ipad-2 screen",
               "timedOut": null,
-              "duration": 45087,
+              "duration": 45406,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "if (Cypress._.isArray(device)) {\n  cy.viewport(device[0], device[1]);\n} else {\n  cy.viewport(device);\n}\nutilPage.getMyBillingURL();\nregistrationPage.getRegisterButton().click();\ncy.wait(10000);\nif (!screenshotTaken) {\n  //If screenshot not taken then take screenshot once and not for every iteration of device type\n  utilPage.takePercySnapShot('Registration page'); //After screnshot taken then set it to true so that it's not repeated afterwards\n  screenshotTaken = true;\n}\nregistrationPage.getFirstNameField().type(this.data.firstName);\nregistrationPage.getLastNameField().type(this.data.lastName);\nregistrationPage.getNextButton().click({\n  force: true\n});\nregistrationPage.getCustomerNumberField().type(this.data.OCNCustomer);\nregistrationPage.getNextButtonToUserDetailsPage().click({\n  force: true\n});\nregistrationPage.getEmailAddressTextField().type(this.data.email);\nregistrationPage.getPhoneNumberTextField().type(this.data.phoneNumber);\nregistrationPage.getNextButton().click({\n  force: true\n});\ncy.wait(3000);\nregistrationPage.getNextButton().click();\nregistrationPage.getNextButton().click();\nregistrationPage.getTermsAndConditionsCheckBox().click();\ncy.wait(4000);\nregistrationPage.getSubmitButton().click({\n  force: true\n});\nutilPage.reloadPage();\ncy.wait(6000);",
               "err": {},
-              "uuid": "b4cd2b24-5f06-4c00-8abd-3278110e2c7a",
-              "parentUUID": "2aae7106-baaa-43a9-8df3-4a154df51bcc",
+              "uuid": "a071df44-8e5a-4ea7-a330-547e2291cd9d",
+              "parentUUID": "b110bd35-fd38-4d41-8d03-9d6a9ae3fa40",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b4cd2b24-5f06-4c00-8abd-3278110e2c7a"
+            "a071df44-8e5a-4ea7-a330-547e2291cd9d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 45087,
+          "duration": 45406,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

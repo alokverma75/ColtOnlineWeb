@@ -1,5 +1,6 @@
 class LoginPage {
 
+
     getUserIDField(){
         return cy.get("#userId");
     }
