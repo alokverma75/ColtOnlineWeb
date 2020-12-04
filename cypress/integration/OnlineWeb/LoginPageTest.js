@@ -23,6 +23,11 @@ describe('Test Login Functionality', function () {
         })
     })
 
+    beforeEach(function () {
+        cy.clearLocalStorage()
+        cy.clearCookies()
+    })
+
     listOfDevices.forEach((device) => {
 
         const loginPage = new LoginPage();
