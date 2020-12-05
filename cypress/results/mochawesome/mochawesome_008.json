@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-12-05T17:45:29.690Z",
+    "end": "2020-12-05T17:45:31.238Z",
+    "duration": 1548,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0cd21d5e-a956-4c8c-a77f-8b6b2e3b7d0e",
+      "title": "",
+      "fullFile": "cypress\\integration\\OnlineWeb\\LoginPageTest.js",
+      "file": "cypress\\integration\\OnlineWeb\\LoginPageTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2961a60a-db2e-4919-b008-47e5abf212b1",
+          "title": "Test Login Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test login functionality in ipad-mini screen",
+              "fullTitle": "Test Login Functionality should test login functionality in ipad-mini screen",
+              "timedOut": null,
+              "duration": 1497,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "if (Cypress._.isArray(device)) {\n  cy.viewport(device[0], device[1]);\n} else {\n  cy.viewport(device);\n}\nutilPage.visitBillingPage();\nCypress.on('uncaught:exception', function (err, runnable) {\n  // returning false here prevents Cypress from\n  // failing the test\n  //cy.log(err)\n  return false;\n});\nif (!screenshotTaken) {\n  utilPage.takePercySnapShot('Login Page');\n  screenshotTaken = true;\n}\nloginPage.getUserIDField().type(data.InternalAdmin);\nloginPage.getPasswordField().type(data.password);\nloginPage.getLoginButton().click();\ncy.wait(10000); // Cypress.on('uncaught:exception', (err, runnable) => {\n//     // returning false here prevents Cypress from\n//     // failing the test\n//     //cy.log(err)\n//     return false\n// })\nutilPage.getAuthorizeAPIEndPoint().as('authorize');\ncy.get('@authorize').should(function (response) {\n  expect(response.status).to.eq(200); // expect(response).to.have.length(500)\n  expect(response).to.have.property('headers').to.include({\n    'server': 'Colt' // ,\n    // 'content-type': 'application/json;charset=UTF-8'\n  }); //check for response bdoy to have all elements as below\n  expect(response.body).property(data.authAPiJSONData.operationElement);\n  expect(response.body).property(data.authAPiJSONData.dataElement);\n  expect(response.body).to.containSubset({\n    \"operationStatus\": {\n      \"success\": true,\n      \"messages\": [\"success\"]\n    }\n  }); //To test only selected data\n  expect(response.body.operationStatus.success).to.eq(true);\n  expect(response.body.operationStatus.messages[0]).to.eq('success');\n  expect(response.body.data[0].userName).to.equalIgnoreCase(data.InternalAdmin);\n  expect(response.body.data[0].roles[7]).to.eq(data.authAPiData.addressDoctor);\n  expect(response.body.data[0].firstName).to.eq(data.authAPiData.firstName);\n  expect(response.body.data[0].employeeType).to.eq(data.authAPiData.employeeType);\n  expect(response.body.data[0].userType).to.eq(data.authAPiData.userType); //data is an array so start with [] and declare diff objs and compare all imp data\n  expect(response.body.data).to.containSubset([{\n    \"roles\": [\"EveryOne\", \"AccountExec\", \"Colt\", \"Request_For_Approval\", \"RemoveUser\", \"ViewMyDraftOrder\", \"RTDTool\", \"AddressDoctor\", \"RaiseFaultTicket\", \"ViewStaticContent\", \"ViewMyLiveServices\", \"EditUser\", \"viewDocument\", \"AddUser\", \"ViewRegulatoryInformation\", \"ViewServices\", \"ViewOrders\", \"ViewBills\", \"ManageDocument\", \"RaiseBillingEnquiry\", \"RaiseServiceTicket\", \"DraftICServices\", \"ViewLiveICServices\", \"ViewTickets\", \"RaiseOtherEnquiry\"],\n    \"firstName\": \"test_123\",\n    \"lastName\": \"qwe\",\n    \"email\": \"Deepesh.Thukral@colt.net\",\n    \"belongsToOCN\": null,\n    \"isAdmin\": false,\n    \"belongsToBCN\": null,\n    \"isPartner\": false,\n    \"title\": \"Mr.\",\n    \"isActive\": true,\n    \"lastLoginDate\": null,\n    \"lastModifiedBy\": null,\n    \"employeeType\": \"Colt Employee\",\n    \"userName\": \"test2020ia\",\n    \"userType\": \"ACCOUNT_EXEC\",\n    \"ochId\": \"\"\n  }]);\n});",
+              "err": {
+                "message": "CypressError: `cy.task('percyHealthCheck')` failed with the following error:\n\nThe 'task' event has not been registered in the plugins file. You must register it before using cy.task()\n\nFix this in your plugins file here:\nD:\\TechPractice\\CypressAutomation\\cypress\\plugins\\index.js\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('percyHealthCheck')` failed with the following error:\n\nThe 'task' event has not been registered in the plugins file. You must register it before using cy.task()\n\nFix this in your plugins file here:\nD:\\TechPractice\\CypressAutomation\\cypress\\plugins\\index.js\n\nhttps://on.cypress.io/api/task\n    at https://my.colt.net/__cypress/runner/cypress_runner.js:159595:21\n    at tryCatcher (https://my.colt.net/__cypress/runner/cypress_runner.js:10584:23)\n    at Promise._settlePromiseFromHandler (https://my.colt.net/__cypress/runner/cypress_runner.js:8519:31)\n    at Promise._settlePromise (https://my.colt.net/__cypress/runner/cypress_runner.js:8576:18)\n    at Promise._settlePromise0 (https://my.colt.net/__cypress/runner/cypress_runner.js:8621:10)\n    at Promise._settlePromises (https://my.colt.net/__cypress/runner/cypress_runner.js:8697:18)\n    at _drainQueueStep (https://my.colt.net/__cypress/runner/cypress_runner.js:5291:12)\n    at _drainQueue (https://my.colt.net/__cypress/runner/cypress_runner.js:5284:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://my.colt.net/__cypress/runner/cypress_runner.js:5300:5)\n    at Async.drainQueues (https://my.colt.net/__cypress/runner/cypress_runner.js:5170:14)\nFrom Your Spec Code:\n    at Context.eval (https://my.colt.net/__cypress/tests?p=cypress\\support\\index.js:633:8)",
+                "diff": null
+              },
+              "uuid": "c191f1d0-4240-428b-beb2-104959b9e1c7",
+              "parentUUID": "2961a60a-db2e-4919-b008-47e5abf212b1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c191f1d0-4240-428b-beb2-104959b9e1c7"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1497,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

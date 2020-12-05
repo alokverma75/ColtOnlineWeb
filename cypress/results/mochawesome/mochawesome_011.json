@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-05T17:47:15.039Z",
+    "end": "2020-12-05T17:48:09.066Z",
+    "duration": 54027,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bb896827-55a7-4f6a-ba2b-ee0f881d409e",
+      "title": "",
+      "fullFile": "cypress\\integration\\OnlineWeb\\RegistrationPageTest.js",
+      "file": "cypress\\integration\\OnlineWeb\\RegistrationPageTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8ffa79aa-138c-47d7-a451-330862aa9869",
+          "title": "Test Billing Page Registration Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test resgitration functionality in ipad-mini screen",
+              "fullTitle": "Test Billing Page Registration Functionality should test resgitration functionality in ipad-mini screen",
+              "timedOut": null,
+              "duration": 54009,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (Cypress._.isArray(device)) {\n  cy.viewport(device[0], device[1]);\n} else {\n  cy.viewport(device);\n}\nutilPage.visitBillingPage();\nregistrationPage.getRegisterButton().click();\ncy.wait(10000);\nif (!screenshotTaken) {\n  //If screenshot not taken then take screenshot once and not for every iteration of device type\n  utilPage.takePercySnapShot('Registration page'); //After screnshot taken then set it to true so that it's not repeated afterwards\n  screenshotTaken = true;\n}\nregistrationPage.getFirstNameField().type(data.firstName, {\n  force: true\n});\nregistrationPage.getLastNameField().type(data.lastName, {\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\nregistrationPage.getCustomerNumberField().type(data.OCNCustomer, {\n  force: true\n});\nregistrationPage.getNextButtonToUserDetailsPage().click({\n  force: true\n});\nregistrationPage.getEmailAddressTextField().type(data.email, {\n  force: true\n});\nregistrationPage.getPhoneNumberTextField().type(data.phoneNumber, {\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\ncy.wait(6000);\nregistrationPage.getNextButton().click({\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\ncy.wait(4000);\nregistrationPage.getTermsAndConditionsCheckBox().click({\n  force: true\n});\ncy.wait(4000);\nregistrationPage.getSubmitButton().click({\n  force: true\n});\nutilPage.reloadPage();\ncy.wait(6000);",
+              "err": {},
+              "uuid": "29c5e2c9-c02c-4343-8191-91662c14fb9b",
+              "parentUUID": "8ffa79aa-138c-47d7-a451-330862aa9869",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "29c5e2c9-c02c-4343-8191-91662c14fb9b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 54009,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

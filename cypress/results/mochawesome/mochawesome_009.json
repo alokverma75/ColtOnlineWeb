@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-12-05T17:45:38.863Z",
+    "end": "2020-12-05T17:46:01.533Z",
+    "duration": 22670,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "af63785f-eeda-4844-b7cb-b4c4e0dc359f",
+      "title": "",
+      "fullFile": "cypress\\integration\\OnlineWeb\\RegistrationPageTest.js",
+      "file": "cypress\\integration\\OnlineWeb\\RegistrationPageTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2ce20fc5-2e0c-46c8-a643-9ecc0382fcf7",
+          "title": "Test Billing Page Registration Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test resgitration functionality in ipad-mini screen",
+              "fullTitle": "Test Billing Page Registration Functionality should test resgitration functionality in ipad-mini screen",
+              "timedOut": null,
+              "duration": 22590,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "if (Cypress._.isArray(device)) {\n  cy.viewport(device[0], device[1]);\n} else {\n  cy.viewport(device);\n}\nutilPage.visitBillingPage();\nregistrationPage.getRegisterButton().click();\ncy.wait(10000);\nif (!screenshotTaken) {\n  //If screenshot not taken then take screenshot once and not for every iteration of device type\n  utilPage.takePercySnapShot('Registration page'); //After screnshot taken then set it to true so that it's not repeated afterwards\n  screenshotTaken = true;\n}\nregistrationPage.getFirstNameField().type(data.firstName, {\n  force: true\n});\nregistrationPage.getLastNameField().type(data.lastName, {\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\nregistrationPage.getCustomerNumberField().type(data.OCNCustomer, {\n  force: true\n});\nregistrationPage.getNextButtonToUserDetailsPage().click({\n  force: true\n});\nregistrationPage.getEmailAddressTextField().type(data.email, {\n  force: true\n});\nregistrationPage.getPhoneNumberTextField().type(data.phoneNumber, {\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\ncy.wait(6000);\nregistrationPage.getNextButton().click({\n  force: true\n});\nregistrationPage.getNextButton().click({\n  force: true\n});\ncy.wait(4000);\nregistrationPage.getTermsAndConditionsCheckBox().click({\n  force: true\n});\ncy.wait(4000);\nregistrationPage.getSubmitButton().click({\n  force: true\n});\nutilPage.reloadPage();\ncy.wait(6000);",
+              "err": {
+                "message": "CypressError: `cy.task('percyHealthCheck')` failed with the following error:\n\nThe 'task' event has not been registered in the plugins file. You must register it before using cy.task()\n\nFix this in your plugins file here:\nD:\\TechPractice\\CypressAutomation\\cypress\\plugins\\index.js\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('percyHealthCheck')` failed with the following error:\n\nThe 'task' event has not been registered in the plugins file. You must register it before using cy.task()\n\nFix this in your plugins file here:\nD:\\TechPractice\\CypressAutomation\\cypress\\plugins\\index.js\n\nhttps://on.cypress.io/api/task\n    at https://my.colt.net/__cypress/runner/cypress_runner.js:159595:21\n    at tryCatcher (https://my.colt.net/__cypress/runner/cypress_runner.js:10584:23)\n    at Promise._settlePromiseFromHandler (https://my.colt.net/__cypress/runner/cypress_runner.js:8519:31)\n    at Promise._settlePromise (https://my.colt.net/__cypress/runner/cypress_runner.js:8576:18)\n    at Promise._settlePromise0 (https://my.colt.net/__cypress/runner/cypress_runner.js:8621:10)\n    at Promise._settlePromises (https://my.colt.net/__cypress/runner/cypress_runner.js:8697:18)\n    at _drainQueueStep (https://my.colt.net/__cypress/runner/cypress_runner.js:5291:12)\n    at _drainQueue (https://my.colt.net/__cypress/runner/cypress_runner.js:5284:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://my.colt.net/__cypress/runner/cypress_runner.js:5300:5)\n    at Async.drainQueues (https://my.colt.net/__cypress/runner/cypress_runner.js:5170:14)\nFrom Your Spec Code:\n    at Context.eval (https://my.colt.net/__cypress/tests?p=cypress\\support\\index.js:633:8)",
+                "diff": null
+              },
+              "uuid": "ec31a4b4-240b-4d6f-8eb1-73230a702841",
+              "parentUUID": "2ce20fc5-2e0c-46c8-a643-9ecc0382fcf7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ec31a4b4-240b-4d6f-8eb1-73230a702841"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 22590,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
