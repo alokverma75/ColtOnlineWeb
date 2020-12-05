@@ -14,7 +14,11 @@
 
 const fs = require('fs-extra')
 const path = require('path')
+
 let percyHealthCheck = require('@percy/cypress/task')
+module.exports = (on, config) => {
+  on("task", percyHealthCheck);
+};
 
 function getConfigurationByFile(file) {
   const pathToConfigFile = path.resolve('cypress', 'config', `${file}.json`)
@@ -31,9 +35,11 @@ function getConfigurationByFile(file) {
 module.exports = (on, config) => {
   // accept a configFile value or use development by default
   const file = config.env.configFile //we will use no default value
-  on("task", percyHealthCheck);
+  //on("task", percyHealthCheck);
   return getConfigurationByFile(file)
 }
+
+
 
 
 
