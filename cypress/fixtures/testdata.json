@@ -4,7 +4,7 @@
   "firstName": "Test",
   "lastName": "User",
   "OCNCustomer": "4159132",  
-  "email": "alokverma75@gmail.com",
+  "email": "alokverma75@gmail.com", 
   "phoneNumber": "07400 123456",
   "authAPiData" : {
       "addressDoctor": "AddressDoctor",
