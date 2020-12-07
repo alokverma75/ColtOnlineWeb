@@ -89,33 +89,55 @@ describe('Test Login Functionality', function () {
         expect(response.body.operationStatus.messages[0]).to.eq('success')
         expect(response.body.data[0].userName).to.equalIgnoreCase(data.InternalAdmin)
        // expect(response.body.data[0].roles[7]).to.eq(data.authAPiData.addressDoctor)
-        expect(response.body.data[0].firstName).to.eq(data.authAPiData.firstName)
-        expect(response.body.data[0].employeeType).to.eq(data.authAPiData.employeeType)
-        expect(response.body.data[0].userType).to.eq(data.authAPiData.userType)
+       // expect(response.body.data[0].firstName).to.eq(data.authAPiData.firstName)
+        //expect(response.body.data[0].employeeType).to.eq(data.authAPiData.employeeType)
+        //expect(response.body.data[0].userType).to.eq(data.authAPiData.userType)
 
        // data is an array so start with [] and declare diff objs and compare all imp data
         expect(response.body.data).to.containSubset(
             [
                 {
-                    "roles":
-                        [
-                            "EveryOne", "AccountExec", "Colt", "Request_For_Approval", "RemoveUser", "ViewMyDraftOrder", "RTDTool", "AddressDoctor", "RaiseFaultTicket", "ViewStaticContent", "ViewMyLiveServices", "EditUser", "viewDocument", "AddUser", "ViewRegulatoryInformation", "ViewServices", "ViewOrders", "ViewBills", "ManageDocument", "RaiseBillingEnquiry", "RaiseServiceTicket", "DraftICServices", "ViewLiveICServices", "ViewTickets", "RaiseOtherEnquiry"
-                        ],
-                    "firstName": "test_123",
-                    "lastName": "qwe",
-                    "email": "Deepesh.Thukral@colt.net",
+                    "preferredlanguage": "en",
+                    "roles": [
+                        "EveryOne",
+                        "CIM",
+                        "Colt",
+                        "Request_For_Approval",
+                        "RemoveUser",
+                        "RTDTool",
+                        "AddressDoctor",
+                        "RaiseFaultTicket",
+                        "ViewStaticContent",
+                        "EditUser",
+                        "viewDocument",
+                        "AddUser",
+                        "ViewRegulatoryInformation",
+                        "ViewServices",
+                        "ViewOrders",
+                        "ViewBills",
+                        "ManageDocument",
+                        "RaiseBillingEnquiry",
+                        "RaiseServiceTicket",
+                        "ViewTickets",
+                        "RaiseOtherEnquiry"
+                    ],
+                    "firstName": "test_12",
+                    "lastName": "qwqq",
+                    "email": "deepesh.thukral@colt.net",
                     "belongsToOCN": null,
-                    "isAdmin": false, "belongsToBCN": null,
+                    "isAdmin": false,
+                    "belongsToBCN": null,
                     "isPartner": false,
                     "title": "Mr.",
                     "isActive": true,
                     "lastLoginDate": null,
                     "lastModifiedBy": null,
                     "employeeType": "Colt Employee",
-                    "userName": "test2020ia",
-                    "userType": "ACCOUNT_EXEC",
-                    "ochId": ""
-
+                    "userName": "test2020cs",
+                    "userType": "CUSTOMER_SERVICE",
+                    "ochId": "04806636",
+                    "xuser": "7thbtKrTWj1JrI2AMEkrDg==",
+                    "ocnaccessList": []
                 }
             ]
         )

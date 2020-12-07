@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-12-07T20:50:57.375Z",
+    "end": "2020-12-07T20:52:24.201Z",
+    "duration": 86826,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a37f6098-befc-4fcd-924e-01f7b8f36583",
+      "title": "",
+      "fullFile": "cypress\\integration\\OnlineWeb\\RaisePlannedWorksTicketTest.js",
+      "file": "cypress\\integration\\OnlineWeb\\RaisePlannedWorksTicketTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8607c34e-2557-426b-a45b-464fe84eb887",
+          "title": "Test Raise Planned Works Ticket Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test Raise Planned works ticket functionality in macbook-16 screen",
+              "fullTitle": "Test Raise Planned Works Ticket Functionality should test Raise Planned works ticket functionality in macbook-16 screen",
+              "timedOut": null,
+              "duration": 86712,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "if (Cypress._.isArray(device)) {\n  cy.viewport(device[0], device[1]);\n} else {\n  cy.viewport(device);\n}\nutilPage.visitBillingPage();\nCypress.on('uncaught:exception', function (err, runnable) {\n  // returning false here prevents Cypress from\n  // failing the test\n  //cy.log(err)\n  return false;\n});\nif (!screenshotTaken) {\n  utilPage.takePercySnapShot('Login Page');\n  screenshotTaken = true;\n}\nloginPage.getUserIDField().type(data.InternalAdmin);\nloginPage.getPasswordField().type(data.password);\nloginPage.getLoginButton().click();\ncy.wait(10000); //cy.wait(4000)\ncy.get('.ct-mega-menu-title').then(function (element) {\n  var listOfValidNavBar = ['Home', 'Connectivity', 'Orders', 'Tickets', 'Services', 'Billing', 'Billing', 'Tools', 'Colt Classic'];\n  var text = element.text();\n  listOfValidNavBar.forEach(function (item) {\n    expect(text).to.contain(item);\n  });\n}); //Lets click on Home link and then come back to same page just to test link\ncy.get('li:nth-of-type(1) > .ct-mega-menu-title.nav-link').invoke('removeAttr', 'target').click(); //do some validation on visited url\ncy.url().should('include', 'dcp.colt.net');\ncy.wait(4000); //Lets validate some of the hidden values to check if we are on correct page\ncy.get('#localeName').then(function (localeName) {\n  //For hidden fields we should use val() in place of text(): its jQuery way\n  var name = localeName.val(); // cy.log(name)\n  expect(name).to.equal('dcp.colt.net');\n});\ncy.get('#colUserNameHidden').then(function (userName) {\n  var name = userName.val(); // cy.log(name)\n  expect(name).to.equal(data.InternalAdmin);\n}); //Lets go back now\ncy.go('back'); //Click on Billing link\ncy.get('#ct-parent-link-11 > .ct-mega-menu-title').invoke('show');\ncy.get('#ct-meng-menu-container-11 > .ct-card-box > :nth-child(2) > :nth-child(2) > :nth-child(1) > .nav-link > .ng-tns-c3-0').click({\n  force: true\n});\ncy.url().should('include', 'tickets');\ncy.wait(25000); //now click on Raise button which is at 2nd index out of 3 found using the below class\ncy.get('.ct-btn-primary').eq(1).click({\n  force: true\n});\ncy.wait(10000);\ncy.get(':nth-child(3) > .ct-dtool-box > .curser-pointer > .card > .mb-0').click({\n  force: true\n});\ncy.get(':nth-child(1) > .section-info > .custom-control-label').click({\n  force: true\n});\ncy.get('.col-md-12 > :nth-child(2) > .ct-btn-primary').click({\n  force: true\n});\ncy.get(':nth-child(1) > [tabulator-field=\"checkd\"] > .custom-control').click({\n  force: true\n});\ncy.get('.col-md-12 > :nth-child(2) > .ct-btn-primary').click({\n  force: true\n}); //click on raise duplicate ticket\ncy.get('.col > .ct-btn-primary').click(); //Page Provide details\ncy.get('#\\\\30 1 > .form-control').type('Test message from Alok', {\n  force: true\n});\ncy.get('#\\\\30 4 > :nth-child(3) > .custom-control-label').click({\n  force: true\n});\ncy.get('#\\\\30 5 > :nth-child(3) > .custom-control-label').click({\n  force: true\n});\ncy.get('#\\\\30 8 > .form-control').type('Test company 123', {\n  force: true\n});\ncy.get('#\\\\30 9 > .form-control').type('London', {\n  force: true\n});\ncy.get('#\\\\31 0 > .form-control').type('Test equipment', {\n  force: true\n});\ncy.get('#\\\\31 2 > .form-control').type('Test User', {\n  force: true\n}); //+49619680252603 phone number format for this so use this\ncy.get('#\\\\31 3 > .form-control').type('+49619680252603');\ncy.get('#timezone').select('(GMT)Western Europe Time,London,Lisbon,Casablanca'); //schedule date of power down\ncy.get('#start').click();\ncy.get('tr:nth-of-type(4) > .ng-star-inserted.owl-dt-calendar-cell.owl-dt-day-3 > .owl-dt-calendar-cell-content').click(); //set button\ncy.get('[class] [tabindex=\"0\"]:nth-child(2)').click({\n  force: true\n}); //cy.get('.owl-dt-control-button').eq(8).click()            \ncy.get('#\\\\31 7 > .form-control').type('Test User', {\n  force: true\n});\ncy.get('#\\\\31 8 > .form-control').type('+49619680252603', {\n  force: true\n});\ncy.get('#up').click({\n  force: true\n});\ncy.get('tr:nth-of-type(4) > .ng-star-inserted.owl-dt-calendar-cell.owl-dt-day-3 > .owl-dt-calendar-cell-content').click({\n  force: true\n});\ncy.get('[class] [tabindex=\"0\"]:nth-child(2)').click({\n  force: true\n}); // cy.get('.owl-dt-control-button').eq(8).click()\ncy.get('#comments').type('Test Comments'); //Next button\ncy.get('.btn.ct-btn-primary.ct-ml-sm.ng-star-inserted').click({\n  force: true\n}); //click on submit button not now as will lead to duplicate ticket error\n// cy.get('button#finalsubmit').click({force:true})",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `.col-md-12 > :nth-child(2) > .ct-btn-primary`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `.col-md-12 > :nth-child(2) > .ct-btn-primary`, but never found it.\n    at Context.eval (https://my.colt.net/__cypress/tests?p=cypress\\integration\\OnlineWeb\\RaisePlannedWorksTicketTest.js:201:10)",
+                "diff": null
+              },
+              "uuid": "2a5d4a53-3a77-4aa3-8093-f1eb46f2bc4f",
+              "parentUUID": "8607c34e-2557-426b-a45b-464fe84eb887",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2a5d4a53-3a77-4aa3-8093-f1eb46f2bc4f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 86712,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
