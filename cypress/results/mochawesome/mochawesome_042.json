@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-12-10T20:12:17.207Z",
+    "end": "2020-12-10T20:13:07.771Z",
+    "duration": 50564,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ae3a04ae-2335-413a-b4ae-5e3fbe254c4d",
+      "title": "",
+      "fullFile": "cypress\\integration\\OnlineWeb\\LoginPageTest.js",
+      "file": "cypress\\integration\\OnlineWeb\\LoginPageTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "53342e24-c10f-42e7-a93e-e3ee08d64e32",
+          "title": "Test Login Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test login functionality in macbook-16 screen",
+              "fullTitle": "Test Login Functionality should test login functionality in macbook-16 screen",
+              "timedOut": null,
+              "duration": 50434,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "if (Cypress._.isArray(device)) {\n  cy.viewport(device[0], device[1]);\n} else {\n  cy.viewport(device);\n}\nutilPage.visitBillingPage();\nCypress.on('uncaught:exception', function (err, runnable) {\n  // returning false here prevents Cypress from\n  // failing the test\n  //cy.log(err)\n  return false;\n});\nif (!screenshotTaken) {\n  utilPage.takePercySnapShot('Login Page');\n  screenshotTaken = true;\n}\nloginPage.getUserIDField().type(data.InternalAdmin);\nloginPage.getPasswordField().type(data.password);\nloginPage.getLoginButton().click();\ncy.wait(10000); // Cypress.on('uncaught:exception', (err, runnable) => {\n//     // returning false here prevents Cypress from\n//     // failing the test\n//     //cy.log(err)\n//     return false\n// })\nutilPage.getAuthorizeAPIEndPoint().as('authorize');\ncy.get('@authorize').should(function (response) {\n  expect(response.status).to.eq(200); // expect(response).to.have.length(500)\n  expect(response).to.have.property('headers').to.include({\n    'server': 'Colt' // ,\n    // 'content-type': 'application/json;charset=UTF-8'\n  }); //check for response bdoy to have all elements as below\n  expect(response.body).property(data.authAPiJSONData.operationElement);\n  expect(response.body).property(data.authAPiJSONData.dataElement);\n  expect(response.body).to.containSubset({\n    \"operationStatus\": {\n      \"success\": true,\n      \"messages\": [\"success\"]\n    }\n  }); //To test only selected data\n  expect(response.body.operationStatus.success).to.eq(true);\n  expect(response.body.operationStatus.messages[0]).to.eq('success');\n  expect(response.body.data[0].userName).to.equalIgnoreCase(data.InternalAdmin); // expect(response.body.data[0].roles[7]).to.eq(data.authAPiData.addressDoctor)\n  expect(response.body.data[0].firstName).to.eq(data.authAPiData.firstName);\n  expect(response.body.data[0].employeeType).to.eq(data.authAPiData.employeeType);\n  expect(response.body.data[0].userType).to.eq(data.authAPiData.userType); // data is an array so start with [] and declare diff objs and compare all imp data\n  expect(response.body.data).to.containSubset([{\n    \"roles\": [\"EveryOne\", \"AccountExec\", \"Colt\", \"Request_For_Approval\", \"RemoveUser\", \"ViewMyDraftOrder\", \"RTDTool\", \"AddressDoctor\", \"RaiseFaultTicket\", \"ViewStaticContent\", \"ViewMyLiveServices\", \"EditUser\", \"viewDocument\", \"AddUser\", \"ViewRegulatoryInformation\", \"ViewServices\", \"ViewOrders\", \"ViewBills\", \"ManageDocument\", \"RaiseBillingEnquiry\", \"RaiseServiceTicket\", \"DraftICServices\", \"ViewLiveICServices\", \"ViewTickets\", \"RaiseOtherEnquiry\"],\n    \"firstName\": \"test_123\",\n    \"lastName\": \"qwe\",\n    \"email\": \"Deepesh.Thukral@colt.net\",\n    \"belongsToOCN\": null,\n    \"isAdmin\": false,\n    \"belongsToBCN\": null,\n    \"isPartner\": false,\n    \"title\": \"Mr.\",\n    \"isActive\": true,\n    \"lastLoginDate\": null,\n    \"lastModifiedBy\": null,\n    \"employeeType\": \"Colt Employee\",\n    \"userName\": \"test2020ia\",\n    \"userType\": \"ACCOUNT_EXEC\",\n    \"ochId\": \"\"\n  }]);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'test_12' to equal 'test_123'",
+                "estack": "AssertionError: Timed out retrying: expected 'test_12' to equal 'test_123'\n    at Context.eval (https://my.colt.net/__cypress/tests?p=cypress\\integration\\OnlineWeb\\LoginPageTest.js:179:52)",
+                "diff": "- 'test_12'\n+ 'test_123'\n"
+              },
+              "uuid": "b218554a-132b-4638-bbd9-e7e85f11fde7",
+              "parentUUID": "53342e24-c10f-42e7-a93e-e3ee08d64e32",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b218554a-132b-4638-bbd9-e7e85f11fde7"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 50434,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -54,7 +54,7 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
         loginPage.getUserIDField().type(data.InternalAdmin)
         loginPage.getPasswordField().type(data.password)
         loginPage.getLoginButton().click()
-        cy.wait(10000)
+        cy.wait(15000)
         //cy.wait(4000)
 
             cy.get('.ct-mega-menu-title').then((element) =>{
@@ -103,14 +103,11 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
             cy.wait(2000)
             cy.get('.col-md-12 > :nth-child(2) > .ct-btn-primary').click({ force: true })
             cy.wait(5000)
-            cy.get(':nth-child(1) > [tabulator-field="checkd"] > .custom-control').click()
-           
+            cy.get(':nth-child(1) > [tabulator-field="checkd"] > .custom-control').click()           
             cy.get('.col-md-12 > :nth-child(2) > .ct-btn-primary').click({ force: true })
 
             //click on raise duplicate ticket
-            cy.get('.col > .ct-btn-primary').click()
-
-            
+            cy.get('.col > .ct-btn-primary').click()            
 
             //Page Provide details
             cy.get('#\\30 1 > .form-control').type('Test message from Alok', { force: true })
@@ -127,22 +124,15 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
 
             //schedule date of power down
             cy.get('#start').click()
-            // cy.get('tr:nth-of-type(4) > .ng-star-inserted.owl-dt-calendar-cell.owl-dt-day-3 > .owl-dt-calendar-cell-content').click({ multiple: false })
-            //set button
-            //cy.get('[class] [tabindex="0"]:nth-child(2)').click()
-            cy.get('.owl-dt-control-button').eq(8).click({ force: true })            
-            cy.wait(10000)
+           //set button
+            cy.get('[class] [tabindex="0"]:nth-child(2)').click({ multiple: true, force: true })
+            //cy.wait(10000)
             cy.get('#\\31 7 > .form-control').type('Test User', { force: true })
             cy.get('#\\31 8 > .form-control').type('+49619680252603', { force: true })
-            cy.wait(8000)
+            //cy.wait(8000)
             cy.get('#up').click({ force: true })
-            // cy.get('tr:nth-of-type(4) > .ng-star-inserted.owl-dt-calendar-cell.owl-dt-day-3 > .owl-dt-calendar-cell-content').click({ multiple: false })
-            cy.wait(3000)
-            cy.get('.owl-dt-control').eq(4).click({ force: true })
-            //cy.get('[class] [tabindex="0"]:nth-child(2)').click({ force: true })
-            
-           //cy.get('.owl-dt-control-button').eq(8).click()
-            cy.wait(8000)
+          cy.get('[class] [tabindex="0"]:nth-child(2)').click({ multiple: true, force: true })
+         cy.wait(5000)
             cy.get('#comments').type('Test Comments', { force: true })
             cy.wait(5000)
             //Next button
@@ -151,7 +141,8 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
             cy.wait(10000)
 
             //click on submit button not now as will lead to duplicate ticket error
-           // cy.get('button#finalsubmit').click({force:true})        
+            cy.get('button#finalsubmit').click({force:true})
+            cy.wait(15000)  
         })
     });
 });
