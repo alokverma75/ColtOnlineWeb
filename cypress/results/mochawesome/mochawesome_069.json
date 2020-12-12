@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-12T20:57:37.291Z",
+    "end": "2020-12-12T20:59:59.011Z",
+    "duration": 141720,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "baa6e193-c900-4c7a-b088-9eb69e155968",
+      "title": "",
+      "fullFile": "cypress\\integration\\OnlineWeb\\RaisePlannedWorksTicketTestTrial.js",
+      "file": "cypress\\integration\\OnlineWeb\\RaisePlannedWorksTicketTestTrial.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "46da1eb5-eba0-4e74-87f6-21eb9eb42422",
+          "title": "Test Raise Planned Works Ticket Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test Raise Planned works ticket functionality in macbook-16 screen",
+              "fullTitle": "Test Raise Planned Works Ticket Functionality should test Raise Planned works ticket functionality in macbook-16 screen",
+              "timedOut": null,
+              "duration": 141338,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (Cypress._.isArray(device)) {\n  cy.viewport(device[0], device[1]);\n} else {\n  cy.viewport(device);\n}\nutilPage.visitBillingPage();\nCypress.on('uncaught:exception', function (err, runnable) {\n  // returning false here prevents Cypress from\n  // failing the test\n  //cy.log(err)\n  return false;\n});\nif (!screenshotTaken) {\n  utilPage.takePercySnapShot('Login Page');\n  screenshotTaken = true;\n}\nloginPage.getUserIDField().type(data.InternalAdmin);\nloginPage.getPasswordField().type(data.password);\nloginPage.getLoginButton().click();\ncy.wait(15000); //cy.wait(4000)\ncy.get('.ct-mega-menu-title').then(function (element) {\n  var listOfValidNavBar = ['Home', 'Connectivity', 'Orders', 'Tickets', 'Services', 'Billing', 'Billing', 'Tools', 'Colt Classic'];\n  var text = element.text();\n  listOfValidNavBar.forEach(function (item) {\n    expect(text).to.contain(item);\n  });\n}); //Lets click on Home link and then come back to same page just to test link\n// cy.get('li:nth-of-type(1) > .ct-mega-menu-title.nav-link').invoke('removeAttr', 'target').click()\n// //do some validation on visited url\n// cy.url().should('include','dcp.colt.net')\n// cy.wait(4000)\n// //Lets validate some of the hidden values to check if we are on correct page\n// cy.get('#localeName').then(localeName => {\n//     //For hidden fields we should use val() in place of text(): its jQuery way\n//     const name = localeName.val()\n//    // cy.log(name)\n//     expect(name).to.equal('dcp.colt.net')\n// })\n// cy.get('#colUserNameHidden').then(userName => {\n//     const name = userName.val()\n//     // cy.log(name)\n//     expect(name).to.equal(data.InternalAdmin)\n// })\n// //Lets go back now\n// cy.go('back')\n//Click on Billing link\ncy.get('#ct-parent-link-11 > .ct-mega-menu-title').invoke('show');\ncy.get('#ct-meng-menu-container-11 > .ct-card-box > :nth-child(2) > :nth-child(2) > :nth-child(1) > .nav-link > .ng-tns-c3-0').click({\n  force: true\n});\ncy.url().should('include', 'tickets');\ncy.wait(25000); //now click on Raise button which is at 2nd index out of 3 found using the below class\ncy.get('.ct-btn-primary').eq(1).click({\n  force: true\n});\ncy.wait(10000);\ncy.get(':nth-child(3) > .ct-dtool-box > .curser-pointer > .card > .mb-0').click({\n  force: true\n});\ncy.get(':nth-child(1) > .section-info > .custom-control-label').click();\ncy.wait(2000);\ncy.get('.col-md-12 > :nth-child(2) > .ct-btn-primary').click({\n  force: true\n});\ncy.wait(5000);\ncy.get(':nth-child(1) > [tabulator-field=\"checkd\"] > .custom-control').click();\ncy.get('.col-md-12 > :nth-child(2) > .ct-btn-primary').click({\n  force: true\n}); //click on raise duplicate ticket\ncy.get('.col > .ct-btn-primary').click(); //Page Provide details\ncy.get('#\\\\30 1 > .form-control').type('Test message from Alok', {\n  force: true\n});\ncy.get('#\\\\30 4 > :nth-child(3) > .custom-control-label').click({\n  force: true\n});\ncy.get('#\\\\30 5 > :nth-child(3) > .custom-control-label').click({\n  force: true\n});\ncy.get('#\\\\30 8 > .form-control').type('Test company 123', {\n  force: true\n});\ncy.get('#\\\\30 9 > .form-control').type('London', {\n  force: true\n});\ncy.get('#\\\\31 0 > .form-control').type('Test equipment', {\n  force: true\n});\ncy.get('#\\\\31 2 > .form-control').type('Test User', {\n  force: true\n}); //+49619680252603 phone number format for this so use this\ncy.get('#\\\\31 3 > .form-control').type('+49619680252603', {\n  force: true\n});\ncy.get('#timezone').select('(GMT)Western Europe Time,London,Lisbon,Casablanca'); //schedule date of power down\ncy.get('#start').click(); //set button\n//cy.get('[class] [tabindex=\"0\"]:nth-child(2)').click({ multiple: true, force: true })\n//trail code\nvar date = new Date();\ndate.setDate(date.getDate() + 90);\nvar futureYear = date.getFullYear();\nvar futureMonth = date.toLocaleString(\"default\", {\n  month: \"short\"\n});\nvar futureDay = date.getDate();\ncy.log(\"Future year to select: \" + futureYear);\ncy.log(\"Future month to select: \" + futureMonth);\ncy.log(\"Future day to select: \" + futureDay);\nfunction selectMonthAndYearPowerDown() {\n  cy.get('.owl-dt-calendar-control').find('.owl-dt-calendar-control-content').then(function (currentDate) {\n    cy.log(\"currentDate is \" + currentDate.text());\n    var futureYearFound = currentDate.text().includes(futureYear);\n    cy.log(\"futureYearFound is \" + futureYearFound);\n    var futureMonthFound = currentDate.text().includes(futureMonth);\n    cy.log(\"futureMonthFound is \" + futureMonthFound);\n    if (!futureYearFound) {\n      cy.log(\"Inside Year loop\" + !futureYearFound);\n      cy.get('[aria-label=\"Next month\"]').click();\n      selectMonthAndYearPowerDown();\n    } else if (!futureMonthFound) {\n      cy.log(\"Inside Month loop\" + !futureMonthFound);\n      cy.get('[aria-label=\"Next month\"]').click();\n      selectMonthAndYearPowerDown();\n    } else {\n      cy.get('.owl-dt-calendar-cell-content').contains(futureDay).click();\n    }\n  });\n}\nselectMonthAndYearPowerDown();\ncy.get('.owl-dt-container-buttons > *').eq(1).should('contain', 'Set');\ncy.get('.owl-dt-container-buttons > *').eq(1).click({\n  multiple: true,\n  force: true\n}); //till here\ncy.wait(5000);\ncy.get('#\\\\31 7 > .form-control').type('Test User', {\n  force: true\n});\ncy.get('#\\\\31 8 > .form-control').type('+49619680252603', {\n  force: true\n});\ncy.wait(8000);\ncy.get('#up').click({\n  force: true\n}); //cy.get('[class] [tabindex=\"0\"]:nth-child(2)').click({ multiple: true, force: true })\n//trail code\nvar dateUp = new Date();\ndateUp.setDate(dateUp.getDate() + 60);\nvar futureYearUp = dateUp.getFullYear();\nvar futureMonthUp = dateUp.toLocaleString(\"default\", {\n  month: \"short\"\n});\nvar futureDayUp = dateUp.getDate();\ncy.log(\"Future year to select: \" + futureYearUp);\ncy.log(\"Future month to select: \" + futureMonthUp);\ncy.log(\"Future day to select: \" + futureDayUp);\nfunction selectMonthAndYearPowerUp() {\n  cy.get('.owl-dt-calendar-control').find('.owl-dt-calendar-control-content').then(function (currentDate) {\n    cy.log(\"currentDate is \" + currentDate.text());\n    var futureYearUpFound = currentDate.text().includes(futureYearUp);\n    cy.log(\"futureYearUpFound is \" + futureYearUpFound);\n    var futureMonthUpFound = currentDate.text().includes(futureMonth);\n    cy.log(\"futureMonthUpFound is \" + futureMonthUpFound);\n    if (!futureYearUpFound) {\n      cy.log(\"Inside Year loop\" + !futureYearUpFound);\n      cy.get('[aria-label=\"Next month\"]').click();\n      selectMonthAndYearPowerUp();\n    } else if (!futureMonthUpFound) {\n      cy.log(\"Inside Month loop\" + !futureMonthUpFound);\n      cy.get('[aria-label=\"Next month\"]').click();\n      selectMonthAndYearPowerUp();\n    } else {\n      cy.get('.owl-dt-calendar-cell-content').contains(futureDayUp).click();\n    }\n  });\n}\nselectMonthAndYearPowerUp();\ncy.get('.owl-dt-container-buttons > *').eq(1).should('contain', 'Set');\ncy.get('.owl-dt-container-buttons > *').eq(1).click({\n  multiple: true,\n  force: true\n});\ncy.wait(8000); // //till here\ncy.get('#comments').type('Test Comments', {\n  force: true\n});\ncy.wait(5000); // cy.get('.owl-dt-container-buttons > *').eq(1).click({ multiple: true, force: true })\n//Next button\ncy.get('.btn.ct-btn-primary.ct-ml-sm.ng-star-inserted').click({\n  force: true\n});\ncy.wait(10000); //click on submit button not now as will lead to duplicate ticket error\ncy.get('button#finalsubmit').click({\n  force: true\n});\ncy.wait(15000);",
+              "err": {},
+              "uuid": "673aaeba-593a-4183-828f-f608719ce078",
+              "parentUUID": "46da1eb5-eba0-4e74-87f6-21eb9eb42422",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "673aaeba-593a-4183-828f-f608719ce078"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 141338,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

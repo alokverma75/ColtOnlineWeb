@@ -3,7 +3,7 @@
   "experimentalSourceRewriting": false,
   "chromeWebSecurity": false,
   "defualtCommandTimeout": 15000,
-  "pageLoadTimeout": 100000,
+  "pageLoadTimeout": 150000,
   "videoCompression": 21,
   "blackHosts": ["www.googletagmanager.com"],
   "nodeVersion":"system",
@@ -12,7 +12,10 @@
     "ticketsURL": "https://my.colt.net/tickets",
     "servicesURL": "https://my.colt.net/services",
     "billingURL": "https://my.colt.net/billing",
-    "plannedWorksURL": "https://my.colt.net/plannedworks"
+    "plannedWorksURL": "https://my.colt.net/plannedworks",
+      "webdriveruni_homepage": "http://webdriveruniversity.com/",
+    "first_name" : "Alok"
+
   },
   "projectId": "fjjc3s",
   "reporter": "cypress-multi-reporters",
