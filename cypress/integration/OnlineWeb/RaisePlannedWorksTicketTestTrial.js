@@ -108,9 +108,14 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
             cy.get('.col-md-12 > :nth-child(2) > .ct-btn-primary').click({ force: true })
 
             //click on raise duplicate ticket
-            cy.get('.col > .ct-btn-primary').click()
+           
+            // if (utilPage.checkIfNeedToClickonDuplicateTicketButton()){            
+            //     cy.get('.col > .ct-btn-primary').click()
+            // }
 
-            
+           utilPage.checkIfNeedToClickonDuplicateTicketButton();
+
+           
 
             //Page Provide details
             cy.get('#\\30 1 > .form-control').type('Test message from Alok', { force: true })
@@ -171,10 +176,10 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
            cy.get('.owl-dt-container-buttons > *').eq(1).click({ multiple: true, force: true })
 
             //till here
-            cy.wait(5000)
+            cy.wait(3000)
             cy.get('#\\31 7 > .form-control').type('Test User', { force: true })
             cy.get('#\\31 8 > .form-control').type('+49619680252603', { force: true })
-            cy.wait(8000)
+            cy.wait(3000)
             cy.get('#up').click({ force: true })
             //cy.get('[class] [tabindex="0"]:nth-child(2)').click({ multiple: true, force: true })
             //trail code
@@ -213,16 +218,16 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
             selectMonthAndYearPowerUp();
             cy.get('.owl-dt-container-buttons > *').eq(1).should('contain', 'Set')
             cy.get('.owl-dt-container-buttons > *').eq(1).click({ multiple: true, force: true })
-            cy.wait(8000)
+            cy.wait(4000)
             // //till here
 
             cy.get('#comments').type('Test Comments', { force: true })
-            cy.wait(5000)
+            cy.wait(3000)
            // cy.get('.owl-dt-container-buttons > *').eq(1).click({ multiple: true, force: true })
             //Next button
             cy.get('.btn.ct-btn-primary.ct-ml-sm.ng-star-inserted').click({ force: true })
 
-            cy.wait(10000)
+            cy.wait(4000)
 
             //click on submit button not now as will lead to duplicate ticket error
             cy.get('button#finalsubmit').click({force:true})

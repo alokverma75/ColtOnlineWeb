@@ -1,6 +1,7 @@
 
 
 class UtilPage{
+    
 
    // This method will take a snapshot based on the screen name passed
     takePercySnapShot(snapshotName){
@@ -51,8 +52,19 @@ class UtilPage{
 
     clearLocalStorage(){
         return cy.clearLocalStorage();
-    } 
+    }
 
+     checkIfNeedToClickonDuplicateTicketButton() {
+         
+        cy.get('.col > .ct-btn-primary').then(button =>{
+            const buttontext = button.text()            
+            if (buttontext.includes('Continue with Raise Ticket')){
+                cy.get('.col > .ct-btn-primary').click()
+                expect(buttontext).to.eq('Continue with Raise Ticket')
+            } 
+        })
+         
+    }
 
 }
 
