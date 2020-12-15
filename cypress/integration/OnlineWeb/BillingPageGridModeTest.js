@@ -151,6 +151,7 @@ describe('Test Billing Page Functionality', function () {
                 cy.log("Element clicked is==>  " + element.text())
             })
             cy.get('.dropdown.show > ul[role="menu"] > li:nth-of-type(1) > .dropdown-menu > li:nth-of-type(4) > .dropdown-item').invoke('removeAttr', 'target').click({ force: true })
+            
             cy.wait(3000)
 
         });
