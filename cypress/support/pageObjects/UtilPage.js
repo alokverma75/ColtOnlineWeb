@@ -57,11 +57,18 @@ class UtilPage{
      checkIfNeedToClickonDuplicateTicketButton() {
          
         cy.get('.col > .ct-btn-primary').then(button =>{
-            const buttontext = button.text()            
-            if (buttontext.includes('Continue with Raise Ticket')){
+            const buttontext = button.text()
+            const continueButtonText = 'Continue with Raise Ticket';
+            var booleanValue = (buttontext.normalize() === continueButtonText.normalize());
+            cy.log("boolean value of comparison=== " + booleanValue)
+            if (booleanValue) {                
                 cy.get('.col > .ct-btn-primary').click()
                 expect(buttontext).to.eq('Continue with Raise Ticket')
-            } 
+            }         
+            // if (buttontext.includes('Continue with Raise Ticket')){
+            //     cy.get('.col > .ct-btn-primary').click()
+            //     expect(buttontext).to.eq('Continue with Raise Ticket')
+            // } 
         })
          
     }

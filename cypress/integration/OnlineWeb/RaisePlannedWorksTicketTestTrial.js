@@ -94,7 +94,7 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
             cy.get('#ct-meng-menu-container-11 > .ct-card-box > :nth-child(2) > :nth-child(2) > :nth-child(1) > .nav-link > .ng-tns-c3-0').click({ force: true })
 
             cy.url().should('include','tickets')
-            cy.wait(25000)
+            cy.wait(30000)
             //now click on Raise button which is at 2nd index out of 3 found using the below class
             cy.get('.ct-btn-primary').eq(1).click({ force: true })
             cy.wait(10000)
@@ -184,7 +184,7 @@ describe('Test Raise Planned Works Ticket Functionality', function () {
             //cy.get('[class] [tabindex="0"]:nth-child(2)').click({ multiple: true, force: true })
             //trail code
             var dateUp = new Date();
-            dateUp.setDate(dateUp.getDate() + 60);
+            dateUp.setDate(dateUp.getDate() + 90);
 
             var futureYearUp = dateUp.getFullYear();
             var futureMonthUp = dateUp.toLocaleString("default", { month: "short" });

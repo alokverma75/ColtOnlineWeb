@@ -2,7 +2,7 @@
   "modifyObstructiveCode": true,
   "experimentalSourceRewriting": false,
   "chromeWebSecurity": false,
-  "defualtCommandTimeout": 15000,
+  "defualtCommandTimeout": 25000,
   "pageLoadTimeout": 150000,
   "videoCompression": 21,
   "blackHosts": ["www.googletagmanager.com"],
